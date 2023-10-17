@@ -1,22 +1,19 @@
-import './App.css'
-import { ToastContainer } from 'react-toastify'
-import { Routes, Route } from 'react-router-dom'
-import Home from './pages/home/Home'
-import Footer from './components/footer/Footer'
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import CategoriaList from './components/category/CategoriaList';
+import CategoriaForm from './components/category/CategoriaForm';
+import CategoriaDetail from './components/category/CategoriaDetail';
+
 
 function App() {
-
   return (
-    <>
-     <ToastContainer />
-     <div className='min-h-[80vh]'>
-      <Routes>
-        <Route path='/' element={<Home/>} />
-      </Routes>
-     </div>
-     <Footer />
-    </>
-  )
+    <Router>
+      <Route path="/categorias" element={<CategoriaList />} />
+      <Route path="/nova-categoria" element={<CategoriaForm />} />
+      <Route path="/editar-categoria/:id" element={<CategoriaForm />} />
+      <Route path="/detalhes-categoria/:id" element={<CategoriaDetail />} />
+    </Router>
+  );
 }
 
-export default App
+export default App;
+
